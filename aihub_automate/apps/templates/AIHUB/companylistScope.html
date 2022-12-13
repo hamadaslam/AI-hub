@@ -1,0 +1,122 @@
+{% extends "layouts/base.html" %}
+{% block title %} Company List {% endblock %} 
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}{% endblock css_plugins %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/assets/css/tablestyle.css">
+{% endblock stylesheets %}
+{% load bootstrap5 %}
+{% block content %} 
+
+
+    <div class="card">
+      <!-- <div class="col-12 grid-margin stretch-card">
+        <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link ps-0" id="home-tab" data-bs-toggle="tab" href="/companylist/" role="tab" aria-controls="overview" aria-selected="false">Screening</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" id="profile-tab" data-bs-toggle="tab" href="/companylistscope/" role="tab" aria-selected="true">Scoping</a>
+            </li>
+           
+          </ul>
+         
+        </div> -->
+      <div class="card-body">
+        <h4 class="card-title">Companies</h4>
+        {% if messages %}
+          <ul class="messages">
+          {% for message in messages %}
+          <!-- {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %} -->
+          <li  style="color: green;" {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link ps-0" id="home-tab" href="/companylist/" role="tab" aria-controls="overview" aria-selected="false">Screening</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" id="profile-tab"  href="/companylistscope/" role="tab" aria-selected="true">Scoping</a>
+          </li>
+         
+        </ul>
+       
+        <!-- <p class="card-description">
+          Information
+        </p> -->
+        <div class="table-responsive pt-3">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                      <th>
+                        Company Id
+                      </th>
+                      <th>
+                        Company Name
+                      </th>
+                      <th>
+                        Action
+                      </th>
+                     
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for x in companylist %}
+                    <tr>
+                      <td>
+                        {{x.id}}
+                      </td>
+                      <td>
+                        {{x.companyName}}
+                      </td>
+                      <td>
+                        <a class="btn btn-primary" id="notes" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                          Notes 
+                        </a> &nbsp; &nbsp;
+                        
+                        <a class="btn btn-primary"  href="/projects/{{x.id}}">View Projects</a>&nbsp; &nbsp;
+                        <a class="btn btn-primary"  href="/sendforms/{{x.id}}">Send Forms</a>
+                        <a class="btn btn-primary"  href="/projectDetails/{{x.id}}">Add Project</a>&nbsp; &nbsp;
+                        
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="notes">
+                          <div class="card">
+                            <div class="card-body">
+                              <h6 class="card-title">Add / Update notes</h6>
+                              <form action="/addnotes/{{x.id}}" method="post" class="forms-sample">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                <textarea name="notes" cols="30" rows="7"  placeholder="Add Notes Here" id="id_notes">{{x.note}}</textarea><br><br>
+                                <button class="btn btn-primary btn-sm" type="submit">ADD / Update</button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+       
+        
+        <!-- <a class="btn btn-primary" onclick="$('#'+'{{x.id}}').toggle()">{{x.projectTitle}}</br></a> -->
+      
+      
+        
+      
+       
+        
+
+  
+
+{% endblock %}

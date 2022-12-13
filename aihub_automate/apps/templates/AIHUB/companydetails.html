@@ -1,0 +1,92 @@
+{% extends "layouts/base.html" %}
+{% block title %} Comapny Details {% endblock %} 
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}{% endblock css_plugins %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %} 
+
+<div class="col-12 grid-margin stretch-card">
+    
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Customer Details</h4>
+        <!-- <p class="card-description">
+          Information
+        </p> -->
+        <form action="/companyDetails/{{company_id}}" method="post" class="forms-sample">
+          {% csrf_token %}
+          {% load widget_tweaks %}
+          <div class="form-group">
+            <label for="companyName">Company Name</label>
+            {% render_field form.companyName placeholder="Company Name" class+="form-control" value=CompanyInformation.companyName %}
+          </div>
+          
+          <div class="form-group">
+            <label for="contactName">Contact Name</label>
+            {% render_field form.contactName placeholder="Contact Name" class+="form-control" value=CompanyInformation.contactName %}
+          </div>
+
+          <div class="form-group">
+            <label for="contactDesignation">Designation</label>
+            {% render_field form.contactDesignation placeholder="Designation" class+="form-control" value=CompanyInformation.contactDesignation %}
+          </div>
+
+          <div class="form-group">
+            <label for="address">Address</label>
+            {% render_field form.address placeholder="Address" class+="form-control" value=CompanyInformation.address %}
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            {% render_field form.Email placeholder="Email" class+="form-control" value=CompanyInformation.Email %}
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            {% render_field form.phone placeholder="Phone" class+="form-control" value=CompanyInformation.phone %}
+          </div>
+
+          <div class="form-group">
+            <label for="incorporationYear">Incorporation Year</label>
+            {% render_field form.incorporationYear placeholder="Incorporation Year" class+="form-control" value=CompanyInformation.incorporationYear  %}
+          </div>
+
+          <div class="form-group">
+            <label for="businessNumber">Business Number</label>
+            {% render_field form.businessNumber placeholder="Business Number" class+="form-control" value=CompanyInformation.businessNumber %}
+          </div>
+
+          <div class="form-group">
+            <label for="numberOfEmployees">Number Of Employees</label>
+            {% render_field form.numberOfEmployees placeholder="Number Of Employees" class+="form-control" value=CompanyInformation.numberOfEmployees %}
+          </div>
+
+          <div class="form-group">
+            <label for="email">Core Operations</label>
+            {% render_field form.coreOperations placeholder="Core Operations" class+="form-control" value=CompanyInformation.coreOperations %}
+          </div>
+
+          <div class="form-group">
+            <label for="revenue">Revenue</label>
+            {% render_field form.revenue placeholder="Revenue" class+="form-control" value=CompanyInformation.revenue %}
+          </div>
+
+          <div class="form-group">
+            <label for="potentialProjects">Potential Projects</label>
+            {% render_field form.potentialProjects placeholder="Potential Projects" class+="form-control" value=CompanyInformation.potentialProjects %}
+          </div>
+
+
+    
+        <button class="btn btn-primary" type="submit">Submit</button>
+       
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

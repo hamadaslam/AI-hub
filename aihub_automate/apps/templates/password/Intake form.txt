@@ -1,0 +1,11 @@
+{% autoescape off %}
+Hello,
+
+Please Update project details using below link and Find attached documents.
+
+{{ protocol }}://{{ domain }}/projectDetails/{{uid}}
+
+Sincerely,
+AIHUB
+
+{% endautoescape %}

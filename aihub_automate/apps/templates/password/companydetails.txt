@@ -1,0 +1,11 @@
+{% autoescape off %}
+Hello,
+
+AIHUB received company your company information. To view / change any details use below link:
+
+{{ protocol }}://{{ domain }}/companyDetails/{{uid}}
+
+Sincerely,
+AIHUB
+
+{% endautoescape %}

@@ -1,0 +1,50 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} User Profile {% endblock %} 
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}{% endblock css_plugins %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+{% block content %} 
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Profile</h4>
+        <p class="card-description">
+          Information
+        </p>
+        <form action="/editprofile/" method="post" class="forms-sample">
+          {% csrf_token %}
+          <fieldset disabled="disabled">  
+          <div class="form-group">
+            <label for="exampleInputEmail3">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" value = "{{email}}" readonly>
+          </div>
+          </fieldset>
+          <div class="form-group">
+            <label for="firstname">First Name</label>
+            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" value = "{{firstname}}">
+          </div>
+          <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" value = "{{lastname}}">
+          </div>
+          <div class="form-group">
+            <label for="contact">Contact</label>
+            <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact" value = "{{contact}}">
+          </div>
+          <div class="form-group">
+            <label for="mailingAddress">Mailing Address</label>
+            <input type="email" class="form-control" id="mailingAddress" name="mailingAddress" placeholder="Mailing Address" value = "{{mailingAddress}}">
+          </div>
+    
+        <button class="btn btn-primary" type="submit">Update</button>
+        <a href="/profile/" class="btn btn-primary">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}

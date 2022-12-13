@@ -1,0 +1,116 @@
+{% extends "layouts/base.html" %}
+{% block title %} Company List {% endblock %} 
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}{% endblock css_plugins %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/assets/css/tablestyle.css">
+{% endblock stylesheets %}
+{% load bootstrap5 %}
+{% block content %} 
+
+<div class="col-12 grid-margin stretch-card">
+    
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Companies</h4>
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" href="/companylist/" role="tab">Screening</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ps-0" id="profile-tab"  href="/companylistscope/" role="tab">Scoping</a>
+          </li>
+         
+        </ul>
+        <!-- <p class="card-description">
+          Information
+        </p> -->
+        <div class="table-responsive pt-3">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                      <th>
+                        Company Id
+                      </th>
+                      <th>
+                        Company Name
+                      </th>
+                      <th>
+                        Action
+                      </th>
+                     
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for x in companylist %}
+                   
+                    <tr onclick="window.location='#projects';">
+                      
+                        
+                  
+                       
+                      <td>
+                        <!-- <a data-bs-toggle="collapse" href="#projects" aria-expanded="false" aria-controls="ui-basic"> -->
+                        {{x.id}}
+                        <!-- </a> -->
+                      </td>
+                    
+                      <td>
+                        {{x.companyName}}
+                      </td>
+                    
+                   
+                      <td>
+                        <a class="btn btn-primary" id="notes" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                          Notes 
+                        </a> &nbsp; &nbsp;
+                        <a class="btn btn-primary"  href="/companyDetails/{{x.id}}">View Details</a>&nbsp; &nbsp;
+                        <a class="btn btn-primary"  href="/changestatus/{{x.id}}">Move to Scoping</a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="notes">
+                          <div class="card">
+                            <div class="card-body">
+                              <h6 class="card-title">Add / Update notes</h6>
+                              <form action="/addnotes/{{x.id}}" method="post" class="forms-sample">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                <textarea name="notes" cols="30" rows="7"  placeholder="Add Notes Here" id="id_notes">{{x.note}}</textarea><br><br>
+                                <button class="btn btn-primary btn-sm" type="submit">ADD / Update</button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+
+                      </td>
+                    </tr>
+                    <tr class="collapse" id="projects">
+                    <td>
+                       buttons
+                      </td> 
+                      
+                    
+                  </tr>
+                    {% endfor %}
+                  </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+       
+        
+        <!-- <a class="btn btn-primary" onclick="$('#'+'{{x.id}}').toggle()">{{x.projectTitle}}</br></a> -->
+      
+      
+        
+      
+       
+        
+
+  
+
+{% endblock %}

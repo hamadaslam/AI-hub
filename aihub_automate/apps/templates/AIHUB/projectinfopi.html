@@ -1,0 +1,198 @@
+{% extends "layouts/base.html" %}
+{% block title %} Project Details {% endblock %} 
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}{% endblock css_plugins %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %} 
+
+    
+
+<div class="col-12 grid-margin stretch-card">
+    
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Project Details</h4>
+        <!-- <p class="card-description">
+          Information
+        </p> -->
+        
+          {% load widget_tweaks %}
+          <!-- <div class="form-group">
+            <label for="companyName">Company Name</label>
+            <input type="text" class="form-control" id="companyName" name="companyName" placeholder="Company Name">
+          </div> -->
+          <div class="card-body">
+            <h4 class="card-title"><label for="projectTitle">Project Title:</label></h4>
+            {{projectdetails.projectTitle}}
+          </div>
+
+          <div class="card-body">
+            <h4 class="card-title"><label for="projectTitle">Company Name:</label></h4>
+            {{projectdetails.companyName}}
+          </div>
+
+          <div class="card-body">
+            <h4 class="card-title"><label for="projectDescription">Project Description:</label></h4>
+            {{projectdetails.projectDescription}}
+          </div>
+
+          <div class="card-body">
+            <h4 class="card-title"><label for="projectobjectives">Describe the project main objectives:</label></h4>
+            {{projectdetails.projectobjectives}}
+          </div>
+
+          <div class="card-body">
+            <h4 class="card-title"><label for="projectobjectives">Describe the project mode of results delivery:</label></h4>
+            {{projectdetails.modeofdelivery}}
+          </div>
+
+          <div class="card-body">
+            <h4 class="card-title"><label for="riskfactors">Describe the key risk factors (Please address all that apply)</label></h4>
+            <div class="table-responsive pt-3">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                          <th>
+                            Project Stage
+                          </th>
+                          <th>
+                            Anticipated Risk
+                          </th>
+                          <th>
+                            Mitigation Strategy
+                          </th>
+                         
+                        </tr>
+                      </thead>
+                      <tbody>
+                        
+                        <tr>
+                            <th>Initiation</th>
+                          <td>
+                            {{projectdetails.rf_initiation_risk}}
+                          </td>
+                          <td>
+                            {{projectdetails.rf_initiation_mitigation}}
+                          </td>
+                         
+                        </tr>
+                        <tr>
+                            <th>Implementation</th>
+                          <td>
+                            {{projectdetails.rf_implementation_risk}}
+                          </td>
+                          <td>
+                            {{projectdetails.rf_implementation_mitigation}}
+                          </td>
+                         
+                        </tr>
+                        
+                        <tr>
+                            <th>Execution</th>
+                          <td>
+                            {{projectdetails.rf_execution_risk}}
+                          </td>
+                          <td>
+                            {{projectdetails.rf_execution_mitigation}}
+                          </td>
+                         
+                        </tr>
+                        <tr>
+                            <th>Commercialization</th>
+                          <td>
+                            {{projectdetails.rf_commercialization_risk}}
+                          </td>
+                          <td>
+                            {{projectdetails.rf_commercialization_mitigation}}
+                          </td>
+                         
+                        </tr>
+                        <tr>
+                            <th>Scientific, Business or Environmental</th>
+                          <td>
+                            {{projectdetails.rf_sbe_risk}}
+                          </td>
+                          <td>
+                            {{projectdetails.rf_sbe_mitigation}}
+                          </td>
+                         
+                        </tr>
+                      </tbody>
+                </table>
+          </div>
+          </div>
+
+          <div class="card-body">
+            <h4 class="card-title"><label for="workplan">Work Plan:</label></h4>
+            <div class="table-responsive pt-3">
+                <table class="table table-bordered" style=" table-layout:fixed;">
+                  <thead>
+                    <tr>
+                      
+                      <th style="width:30%">
+                        Milestone
+                      </th>
+                      <th style="width:60%">
+                        Description
+                      </th>
+                      <th style="width:10%">
+                        Week
+                      </th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for x in workplandetail %}
+                  <tr>
+                      <td style="width:30%; word-wrap:break-word; white-space: break-spaces;">{{x.milestone}}</td>
+                      <td style="width:60%; word-wrap:break-word; white-space: break-spaces;">{{x.description}}</td>
+                      <td style="width:10%">{{x.week}}</td>
+                     
+                      
+                  </tr>
+                  {% endfor %}
+              </tbody>
+                </table>
+              </div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title"><label for="teamdetails">Team Details:</label></h4>
+            <div class="table-responsive pt-3">
+                <table class="table table-bordered" style=" table-layout:fixed;">
+                  <thead>
+                    <tr>
+                      
+                      <th style="width:30%">
+                        Role
+                      </th>
+                      <th style="width:70%">
+                        Description
+                      </th>
+                      
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for x in teamdetails %}
+                  <tr>
+                      <td style="width:30%;">{{x.role}}</td>
+                      <td style="width:60%; word-wrap:break-word; white-space: break-spaces;">{{x.description}}</td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+                </table>
+              </div>
+          </div>
+    
+      
+       
+      
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

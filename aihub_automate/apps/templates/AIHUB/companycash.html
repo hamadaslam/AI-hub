@@ -1,0 +1,99 @@
+{% extends "layouts/base.html" %}
+{% block title %} Finance Details {% endblock %} 
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}{% endblock css_plugins %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %} 
+
+<div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Finance Details</h4>
+      <p> The project requires you to match the funding amount ($0) with cash and in kind. Your cash contribution will be $0 and the in kind will be approx. $20,000. 
+        The in-kind is not actual cash. It is the time of you and your team spent on this project. The activities may include meeting, reviewing, providing feedback etc. The time is estimated at the rate of $100 per hours (Consistent with the funder policy). 
+        Please provide the names of team members who would be spending time on the project and their estimated hours.</p>
+      <div class="table-responsive pt-3">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              
+              <th>
+                Name
+              </th>
+              <th>
+                Designation / Role
+              </th>
+              <th>
+                Number of hours
+              </th>
+              
+            </tr>
+          </thead>
+          <tbody>
+          {% for x in companycashdetails %}
+          <tr>
+              <td>{{x.name}}</td>
+              <td>{{x.designation}}</td>
+              <td>{{x.hours}}</td>
+             
+              
+          </tr>
+          {% endfor %}
+      </tbody>
+        </table>
+      </div>
+    </br><a href="#" class="btn btn-primary" onclick='$("#records").show()'>Add Records</a>
+    </div>
+  </div>
+</div>
+
+  <div style="padding-right: 20px;">
+    {% if companycashdetails|length  > 0 %}
+      <a href="/projects/{{companyid}}" class="btn btn-primary" style="float: right;" onclick='$("#records").show()'>Save and Continue</a>
+    
+    {% endif %}
+    </div>
+
+</br>
+
+<div class="col-12 grid-margin stretch-card" id ="records" style="display: none">
+    
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Finance Details</h4>
+        <!-- <p class="card-description">
+          Information
+        </p> -->
+        <form action="/companycash/{{para}}" method="post" class="forms-sample">
+          {% csrf_token %}
+          {% load widget_tweaks %}
+          <!-- <div class="form-group">
+            <label for="companyName">Company Name</label>
+            <input type="text" class="form-control" id="companyName" name="companyName" placeholder="Company Name">
+          </div> -->
+          
+          <div class="form-group">
+            <label for="name">Name</label>
+            {% render_field form.name placeholder="Name" class+="form-control"  %}
+          </div>
+          <div class="form-group">
+            <label for="designation">Designation / Role</label>
+            {% render_field form.designation placeholder="Designation" class+="form-control"  %}
+          </div>
+          <div class="form-group">
+            <label for="name">Approx. number of hours per week</label>
+            {% render_field form.hours placeholder="hours" class+="form-control"  %}
+          </div>
+    
+        <button class="btn btn-primary" type="submit">ADD</button>
+       
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

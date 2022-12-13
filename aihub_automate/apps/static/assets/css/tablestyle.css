@@ -1,0 +1,12 @@
+
+th {
+    width: 25%;
+    word-wrap: break-word;
+    vertical-align: text-top;
+    }
+
+td{
+    vertical-align: text-top;
+    white-space: pre-wrap; 
+    word-wrap:break-word
+}

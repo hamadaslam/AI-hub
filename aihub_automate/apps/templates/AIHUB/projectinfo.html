@@ -1,0 +1,97 @@
+{% extends "layouts/base.html" %}
+{% block title %} Project Information {% endblock %} 
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}{% endblock css_plugins %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %} 
+
+<div class="col-12 grid-margin stretch-card">
+    
+    <div class="card">
+      <div class="card-body">
+        <h2>Project Information</h2>
+        <!-- <p class="card-description">
+          Information
+        </p> -->
+      </div>
+          {% csrf_token %}
+          {% load widget_tweaks %}
+          
+          <div class="card-body">
+            <h4 class="card-title"><label for="projectTitle">Project Title:</label></h4>
+            {{projectdetails.projectTitle}}
+          </div>
+
+          <div class="card-body">
+            <h4 class="card-title"><label for="projectDescription">Project Description:</label></h4>
+            {{projectdetails.projectDescription}}
+          </div>
+          
+          <div class="card-body">
+            <h4 class="card-title"><label for="noveltyProject">Novelty of the Project:</label></h4>
+            {{projectdetails.noveltyProject}}
+          </div>
+
+          <div class="card-body">
+            <h4 class="card-title"><label for="question1">Explain how the company expects to exploit the technology/products/services resulting from the proposed research project.
+                 (Does the company have the financial capabilities and plans to bring the project outcome to market):</label></h4>
+                 {{projectdetails.question1}} 
+          </div>
+          
+          
+          <div class="card-body">
+            <h4 class="card-title"><label for="question2">Describe how the project will provide direct economic and/or other benefits to the industry partner, the sector, the Greater Toronto Area, Ontario, Canada and beyond:</label></h4>
+            
+                {{projectdetails.question2}} 
+            
+          </div>
+          {% if companycashdetails %}
+          <div class="card-body">
+            <h4 class="card-title">The project requires you to match the funding amount ($0) with cash and in kind. Your cash contribution will be $0 and the in kind will be approx. $20,000. 
+        The in-kind is not actual cash. It is the time of you and your team spent on this project. The activities may include meeting, reviewing, providing feedback etc. The time is estimated at the rate of $100 per hours (Consistent with the funder policy). 
+        Please provide the names of team members who would be spending time on the project and their estimated hours.</h4>
+        <div class="table-responsive pt-3">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  
+                  <th>
+                    Name
+                  </th>
+                  <th>
+                    Designation / Role
+                  </th>
+                  <th>
+                    Number of hours
+                  </th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+              {% for x in companycashdetails %}
+              <tr>
+                  <td>{{x.name}}</td>
+                  <td>{{x.designation}}</td>
+                  <td>{{x.hours}}</td>
+                 
+                  
+              </tr>
+              {% endfor %}
+          </tbody>
+            </table>
+          </div>
+          </div>
+          {% endif %}
+    
+        
+       
+      
+      
+    </div>
+  </div>
+
+{% endblock %}
