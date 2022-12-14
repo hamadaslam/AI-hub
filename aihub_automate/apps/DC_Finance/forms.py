@@ -5,4 +5,4 @@ class RESEARCH_CENTRE_FORM(forms.ModelForm):
 
     class Meta:
         model = RESEARCH_CENTRE
-        fields = (Research_Centre)
+        fields = '__all__'

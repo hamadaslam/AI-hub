@@ -1,0 +1,9 @@
+{% extends 'DC_Finance/base.html' %}
+
+{% block content %}   
+    {% for record in research_center %}
+        <article class="post">
+        <h2>{{ record.Research_Centre }}</h2>
+        </article>
+    {% endfor %}
+{% endblock %}

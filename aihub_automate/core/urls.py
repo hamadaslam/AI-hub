@@ -15,4 +15,5 @@ urlpatterns = [
     path("", include("apps.AIHUB.urls")),
     # Leave `Home.Urls` as last the last line
     #path("", include("apps.home.urls"))
+    path("fin/", include("apps.DC_Finance.urls")),
 ]

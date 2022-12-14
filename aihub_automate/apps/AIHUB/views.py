@@ -153,7 +153,7 @@ def companyDetails(request,company_id=""):
             }
             emailbody = render_to_string(email_template_name, c)
             try:
-                send_mail(subject, emailbody, settings.EMAIL_HOST_USER , [email,'taxil.savani@gmail.com'], fail_silently=False)
+                send_mail(subject, emailbody, settings.EMAIL_HOST_USER , [email,'1hamadaslam@gmail.com'], fail_silently=False)
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             # return redirect ("/password_reset/done/")
