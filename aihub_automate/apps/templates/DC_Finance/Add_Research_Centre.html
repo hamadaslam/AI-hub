@@ -1,9 +1,39 @@
-{% extends 'DC_Finance/base.html' %}
 
-{% block content %}
-    <h2>New post</h2>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-secondary">Save</button>
-    </form>
+{% extends "layouts/base.html" %}
+{% block title %} Comapny Details {% endblock %} 
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}{% endblock css_plugins %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %} 
+
+<div class="col-12 grid-margin stretch-card">
+    
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Customer Details</h4>
+        <!-- <p class="card-description">
+          Information
+        </p> -->
+        <form action="" method="POST" class="forms-sample">
+          {% csrf_token %}
+          {% load widget_tweaks %}
+          <div class="form-group">
+            <label for="companyName">Company Name</label>
+            {% render_field form.Research_Centre placeholder="Research centre Name" class+="form-control" value=RESEARCH_CENTRE.Research_Centre %}
+          </div>
+
+
+
+    
+        <button class="btn btn-primary" type="submit">Submit</button>
+       
+        </form>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}

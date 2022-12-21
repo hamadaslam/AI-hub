@@ -14,7 +14,7 @@ def Add_Research_Centre(request):
         if form.is_valid():
             Research_Centre = form.save(commit=False)
             Research_Centre.save()
-            return redirect('research_centre.html',)
+            return redirect('/fin/research_centre',)
     else:
         form = RESEARCH_CENTRE_FORM()
     return render(request, 'DC_Finance/Add_Research_Centre.html', {'form': form})
