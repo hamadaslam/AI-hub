@@ -1,0 +1,46 @@
+
+{% extends "layouts/base.html" %}
+{% block title %} Add Project Partner {% endblock %} 
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}{% endblock css_plugins %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %} 
+
+<div class="col-12 grid-margin stretch-card">
+    
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Project Partner</h4>
+        <!-- <p class="card-description">
+          Information
+        </p> -->
+        <form action="" method="POST" class="forms-sample">
+          {% csrf_token %}
+          {% load widget_tweaks %}
+          <div class="form-group">
+            <label for="ProjectPartnerName">Name</label>
+            {% render_field form.Project_Partner placeholder="Name" class+="form-control" value=PROJECT_PARTNER.Project_Partner %}
+          </div>
+          <div class="form-group">
+            <label for="Project_Partner_NAICS_Classification">NAICS Classification</label>
+            {% render_field form.Project_Partner_NAICS_Classification placeholder="NAICS Classification" class+="form-control" value=PROJECT_PARTNER.Project_Partner_NAICS_Classification %}
+          </div>
+          <div class="form-group">
+            <label for="Project_Partner_Size">Size</label>
+            {% render_field form.Project_Partner_Size placeholder="Project Partner Size" class+="form-control" value=PROJECT_PARTNER.Project_Partner_Size %}
+          </div>
+
+
+    
+        <button class="btn btn-primary" type="submit">Submit</button>
+       
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

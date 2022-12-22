@@ -1,0 +1,121 @@
+<!-- Taxils template  -->
+{% extends "layouts/base.html" %}
+{% block title %}  Faculty {% endblock %} 
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}{% endblock css_plugins %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/assets/css/tablestyle.css">
+{% endblock stylesheets %}
+{% load bootstrap5 %}
+{% block content %} 
+
+<div class="col-12 grid-margin stretch-card">
+    
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Faculty</h4>
+            <a class="btn btn-primary"  href="/fin/Add_Faculty">&plus; Faculty</a>
+         
+        <!-- <p class="card-description">
+          Information
+        </p> -->
+        <div class="table-responsive pt-3">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                      <th>
+                        Professor Name
+                      </th>
+                      <th>
+                        ID Number
+                      </th>
+                      <th>
+                        Faculty Department
+                      </th>
+                      <th>
+                        Internship Supervisor
+                      </th>
+                      <th>
+                        External Principal_Investigator
+                      </th>
+                      <th>
+                        Research Associate
+                      </th>
+                      <th>
+                        External Research Assistant
+                      </th>
+                      <th>
+                        Administration Support Staff
+                      </th>
+                      <th>
+                        Post Doc
+                      </th>
+                      <th>
+                        Technician Name
+                      </th>
+                      <th>
+                        Contract Hours
+                      </th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for x in faculty %}
+                   
+                    <tr onclick="window.location='#projects';">
+                      
+                        
+                  
+                       
+                      <td>
+                        <!-- <a data-bs-toggle="collapse" href="#projects" aria-expanded="false" aria-controls="ui-basic"> -->
+                        {{x.Professor_Name}}
+                        <!-- </a> -->
+                      </td>
+                      <td>
+                        {{x.ID_Number}}
+                      </td>
+                      <td>
+                        {{x.Faculty_Department}}
+                      </td>
+                      <td>
+                        {{x.Internship_Supervisor}}
+                      </td>
+                      <td>
+                        {{x.External_Principal_Investigator}}
+                      </td>
+                      <td>
+                        {{x.Research_Associate}}
+                      </td>
+                      <td>
+                        {{x.External_Research_Assistant}}
+                      </td>
+                      <td>
+                        {{x.Administration_Support_Staff}}
+                      </td>
+                      <td>
+                        {{x.Post_Doc}}
+                      </td>
+                      <td>
+                        {{x.Technician_Name}}
+                      </td>
+                      <td>
+                        {{x.Contract_hours}}
+                      </td>
+                    
+                    </tr>
+                    
+                    {% endfor %}
+                  </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+</div>     
+        
+        <!-- <a class="btn btn-primary" onclick="$('#'+'{{x.id}}').toggle()">{{x.projectTitle}}</br></a> -->
+
+{% endblock %}

@@ -1,0 +1,78 @@
+
+{% extends "layouts/base.html" %}
+{% block title %} Add Project {% endblock %} 
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}{% endblock css_plugins %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %} 
+
+<div class="col-12 grid-margin stretch-card">
+    
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Project</h4>
+        <!-- <p class="card-description">
+          Information
+        </p> -->
+        <form action="" method="POST" class="forms-sample">
+          {% csrf_token %}
+          {% load widget_tweaks %}
+          <div class="form-group">
+            <label for="Project_Name">Project_Name</label>
+            {% render_field form.Project_Name placeholder="Name" class+="form-control" value=Project.Project_Name %}
+          </div>
+          <div class="form-group">
+            <label for="Project_number">Project_number</label>
+            {% render_field form.Project_number placeholder="Project_number" class+="form-control" value=Project.Project_number %}
+          </div>
+          <div class="form-group">
+            <label for="Project_Manager">Project_Manager</label>
+            {% render_field form.Project_Manager placeholder="Project Partner Size" class+="form-control" value=Project.Project_Manager %}
+          </div>
+          <div class="form-group">
+            <label for="Count_as_Project">Count_as_Project</label>
+            {% render_field form.Count_as_Project placeholder="Count_as_Project" class+="form-control" value=Project.Count_as_Project %}
+          </div>
+          <div class="form-group">
+            <label for="Fiscal_Year">Fiscal_Year</label>
+            {% render_field form.Fiscal_Year placeholder="Fiscal_Year" class+="form-control" value=Project.Fiscal_Year %}
+          </div>
+          <div class="form-group">
+            <label for="Start_this_Fiscal">Start_this_Fiscal</label>
+            {% render_field form.Start_this_Fiscal placeholder="Start_this_Fiscal" class+="form-control" value=Project.Start_this_Fiscal %}
+          </div>
+          <div class="form-group">
+            <label for="Professor_Name">Professor_Name</label>
+            {% render_field form.Professor_Name placeholder="Professor_Name" class+="form-control" value=Project.Professor_Name %}
+          </div>
+          <div class="form-group">
+            <label for="Project_Partner">Project_Partner</label>
+            {% render_field form.Project_Partner placeholder="Project_Partner" class+="form-control" value=Project.Project_Partner %}
+          </div>
+          <div class="form-group">
+            <label for="Research_Centre">Research_Centre</label>
+            {% render_field form.Research_Centre placeholder="Research_Centre" class+="form-control" value=Project.Research_Centre %}
+          </div>
+          <div class="form-group">
+            <label for="Clean_tech">Name</label>
+            {% render_field form.Clean_tech placeholder="Clean_tech" class+="form-control" value=Project.Clean_tech %}
+          </div>
+          <div class="form-group">
+            <label for="Project_NAICS_Classification">Project_NAICS_Classification</label>
+            {% render_field form.Project_NAICS_Classification placeholder="Project_NAICS_Classification" class+="form-control" value=Project.Project_NAICS_Classification %}
+          </div>
+
+
+    
+        <button class="btn btn-primary" type="submit">Submit</button>
+       
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

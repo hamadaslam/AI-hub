@@ -1,0 +1,60 @@
+<!-- Taxils template  -->
+{% extends "layouts/base.html" %}
+{% block title %} Programs {% endblock %} 
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}{% endblock css_plugins %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/assets/css/tablestyle.css">
+{% endblock stylesheets %}
+{% load bootstrap5 %}
+{% block content %} 
+
+<div class="col-12 grid-margin stretch-card">
+    
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Research Centers</h4>
+            <a class="btn btn-primary"  href="/fin/Add_Program">&plus; Program</a>
+         
+        <!-- <p class="card-description">
+          Information
+        </p> -->
+        <div class="table-responsive pt-3">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                      <th>
+                        Program
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for x in program %}
+                   
+                    <tr onclick="window.location='#projects';">
+                      
+                        
+                  
+                       
+                      <td>
+                        <!-- <a data-bs-toggle="collapse" href="#projects" aria-expanded="false" aria-controls="ui-basic"> -->
+                        {{x.Program}}
+                        <!-- </a> -->
+                      </td>
+                    
+                    </tr>
+                    
+                    {% endfor %}
+                  </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+</div>     
+        
+        <!-- <a class="btn btn-primary" onclick="$('#'+'{{x.id}}').toggle()">{{x.projectTitle}}</br></a> -->
+
+{% endblock %}

@@ -1,6 +1,6 @@
 
 {% extends "layouts/base.html" %}
-{% block title %} Add Research Centre {% endblock %} 
+{% block title %} Add NAICS CLASSIFICATION {% endblock %} 
 
 <!-- Specific CSS Plugins goes HERE  -->
 {% block css_plugins %}{% endblock css_plugins %}
@@ -14,7 +14,7 @@
     
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Research Centre</h4>
+        <h4 class="card-title">NAICS CLASSIFICATION</h4>
         <!-- <p class="card-description">
           Information
         </p> -->
@@ -22,10 +22,9 @@
           {% csrf_token %}
           {% load widget_tweaks %}
           <div class="form-group">
-            <label for="ResearchCentreName">Research Centre Name</label>
-            {% render_field form.Research_Centre placeholder="AI-Hub" class+="form-control" value=RESEARCH_CENTRE.Research_Centre %}
+            <label for="NAICS_Classification">NAICS_Classification</label>
+            {% render_field form.NAICS_Classification placeholder="NAICS_Classification" class+="form-control" value=NAICS_CLASSIFICATION.NAICS_Classification %}
           </div>
-
 
 
     

@@ -1,0 +1,122 @@
+<!-- Taxils template  -->
+{% extends "layouts/base.html" %}
+{% block title %} Projects {% endblock %} 
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}{% endblock css_plugins %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/assets/css/tablestyle.css">
+{% endblock stylesheets %}
+{% load bootstrap5 %}
+{% block content %} 
+
+<div class="col-12 grid-margin stretch-card">
+    
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Projects</h4>
+            <a class="btn btn-primary"  href="/fin/Add_project">&plus; Project</a>
+         
+        <!-- <p class="card-description">
+          Information
+        </p> -->
+        <div class="table-responsive pt-3">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                      <th>
+                        Project Name
+                      </th>
+                      <th>
+                        Project Number
+                      </th>
+                      <th>
+                        Project Manager
+                      </th>
+                      <th>
+                        Count As Project
+                      </th>
+                      <th>
+                        Fiscal Year
+                      </th>
+                      <th>
+                        Start This Fiscal
+                      </th>
+                      <th>
+                        Professor Name
+                      </th>
+                      <th>
+                        Project Partner
+                      </th>
+                      <th>
+                        Research Centre
+                      </th>
+                      <th>
+                        Clean Tech
+                      </th>
+                      <th>
+                        Project NAICS Classification
+                      </th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for x in project %}
+                   
+                    <tr onclick="window.location='#projects';">
+                      
+                        
+                  
+                       
+                      <td>
+                        <!-- <a data-bs-toggle="collapse" href="#projects" aria-expanded="false" aria-controls="ui-basic"> -->
+                        {{x.Project_Name}}
+                        <!-- </a> -->
+                      </td>
+                      <td>
+                        {{x.Project_number}}
+                      </td>
+                      <td>
+                        {{x.Project_Manager}}
+                      </td>
+                      <td>
+                        {{x.Count_as_Project}}
+                      </td>
+                      <td>
+                        {{x.Fiscal_Year}}
+                      </td>
+                      <td>
+                        {{x.Start_this_Fiscal}}
+                      </td>
+                      <td>
+                        {{x.Professor_Name}}
+                      </td>
+                      <td>
+                        {{x.Project_Partner}}
+                      </td>
+                      <td>
+                        {{x.Research_Centre}}
+                      </td>
+                      <td>
+                        {{x.Clean_tech}}
+                      </td>
+                      <td>
+                        {{x.Project_NAICS_Classification}}
+                      </td>
+
+                    
+                    </tr>
+                    
+                    {% endfor %}
+                  </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+</div>     
+        
+        <!-- <a class="btn btn-primary" onclick="$('#'+'{{x.id}}').toggle()">{{x.projectTitle}}</br></a> -->
+
+{% endblock %}

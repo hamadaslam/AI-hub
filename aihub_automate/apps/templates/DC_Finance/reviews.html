@@ -1,0 +1,90 @@
+<!-- Taxils template  -->
+{% extends "layouts/base.html" %}
+{% block title %} Reviews {% endblock %} 
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}{% endblock css_plugins %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/assets/css/tablestyle.css">
+{% endblock stylesheets %}
+{% load bootstrap5 %}
+{% block content %} 
+
+<div class="col-12 grid-margin stretch-card">
+    
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Reviews</h4>
+            <a class="btn btn-primary"  href="/fin/Add_review">&plus; Review</a>
+         
+        <!-- <p class="card-description">
+          Information
+        </p> -->
+        <div class="table-responsive pt-3">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                      <th>
+                        Project Start Date
+                      </th>
+                      <th>
+                        Project End Date
+                      </th>
+                      <th>
+                        Business Solution
+                      </th>
+                      <th>
+                        Project Outcome
+                      </th>
+                      <th>
+                        Success Story Produced
+                      </th>
+                      <th>
+                        Project Nnumber
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for x in review %}
+                   
+                    <tr onclick="window.location='#projects';">
+                      
+                        
+                  
+                       
+                      <td>
+                        <!-- <a data-bs-toggle="collapse" href="#projects" aria-expanded="false" aria-controls="ui-basic"> -->
+                        {{x.Project_start_date}}
+                        <!-- </a> -->
+                      </td>
+                      <td>
+                        {{x.Project_end_date}}
+                      </td>
+                      <td>
+                        {{x.Business_solution}}
+                      </td>
+                      <td>
+                        {{x.Project_outcome}}
+                      </td>
+                      <td>
+                        {{x.Success_Story_Produced}}
+                      </td>
+                      <td>
+                        {{x.Project_number}}
+                      </td>
+                    
+                    </tr>
+                    
+                    {% endfor %}
+                  </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+</div>     
+        
+        <!-- <a class="btn btn-primary" onclick="$('#'+'{{x.id}}').toggle()">{{x.projectTitle}}</br></a> -->
+
+{% endblock %}

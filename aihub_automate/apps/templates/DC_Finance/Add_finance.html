@@ -1,0 +1,58 @@
+
+{% extends "layouts/base.html" %}
+{% block title %} Add Finance {% endblock %} 
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}{% endblock css_plugins %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %} 
+
+<div class="col-12 grid-margin stretch-card">
+    
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Finance</h4>
+        <!-- <p class="card-description">
+          Information
+        </p> -->
+        <form action="" method="POST" class="forms-sample">
+          {% csrf_token %}
+          {% load widget_tweaks %}
+          <div class="form-group">
+            <label for="Funding_for_projects_Admin">Funding_for_projects_Admin</label>
+            {% render_field form.Funding_for_projects_Admin placeholder="Funding_for_projects_Admin" class+="form-control" value=FINANCE.Funding_for_projects_Admin %}
+          </div>
+          <div class="form-group">
+            <label for="Approved_industry_Partner_cash_Contribution">Approved_industry_Partner_cash_Contribution</label>
+            {% render_field form.Approved_industry_Partner_cash_Contribution placeholder="Approved_industry_Partner_cash_Contribution" class+="form-control" value=FINANCE.Approved_industry_Partner_cash_Contribution %}
+          </div>
+          <div class="form-group">
+            <label for="Approved_industry_partner_In_Kind_contribution">Approved_industry_partner_In_Kind_contribution</label>
+            {% render_field form.Approved_industry_partner_In_Kind_contribution placeholder="Approved_industry_partner_In_Kind_contribution" class+="form-control" value=FINANCE.Approved_industry_partner_In_Kind_contribution %}
+          </div>
+          <div class="form-group">
+            <label for="Funding_org_Roll_up">Funding_org_Roll_up</label>
+            {% render_field form.Funding_org_Roll_up placeholder="Funding_org_Roll_up" class+="form-control" value=FINANCE.Funding_org_Roll_up %}
+          </div>
+          <div class="form-group">
+            <label for="Grant_Number">Grant_Number</label>
+            {% render_field form.Grant_Number placeholder="Grant_Number" class+="form-control" value=FINANCE.Grant_Number %}
+          </div>
+          <div class="form-group">
+            <label for="Project_number">Project_number</label>
+            {% render_field form.Project_number placeholder="Project_number" class+="form-control" value=FINANCE.Project_number %}
+          </div>
+
+
+    
+        <button class="btn btn-primary" type="submit">Submit</button>
+       
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

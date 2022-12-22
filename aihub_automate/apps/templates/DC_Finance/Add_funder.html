@@ -1,6 +1,6 @@
 
 {% extends "layouts/base.html" %}
-{% block title %} Add Research Centre {% endblock %} 
+{% block title %} Add Funder {% endblock %} 
 
 <!-- Specific CSS Plugins goes HERE  -->
 {% block css_plugins %}{% endblock css_plugins %}
@@ -14,7 +14,7 @@
     
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Research Centre</h4>
+        <h4 class="card-title">Funder</h4>
         <!-- <p class="card-description">
           Information
         </p> -->
@@ -22,10 +22,17 @@
           {% csrf_token %}
           {% load widget_tweaks %}
           <div class="form-group">
-            <label for="ResearchCentreName">Research Centre Name</label>
-            {% render_field form.Research_Centre placeholder="AI-Hub" class+="form-control" value=RESEARCH_CENTRE.Research_Centre %}
+            <label for="Funder">Funder</label>
+            {% render_field form.Funder placeholder="Funder" class+="form-control" value=FUNDER.Funder %}
           </div>
-
+          <div class="form-group">
+            <label for="Funding_Level">Funding_Level</label>
+            {% render_field form.Funding_Level placeholder="Funding_Level" class+="form-control" value=FUNDER.Funding_Level %}
+          </div>
+          <div class="form-group">
+            <label for="Project_number">Project_number</label>
+            {% render_field form.Project_number placeholder="Project_number" class+="form-control" value=FUNDER.Project_number %}
+          </div>
 
 
     

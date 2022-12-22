@@ -1,0 +1,66 @@
+
+{% extends "layouts/base.html" %}
+{% block title %} Add Student {% endblock %} 
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}{% endblock css_plugins %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %} 
+
+<div class="col-12 grid-margin stretch-card">
+    
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Project Partner</h4>
+        <!-- <p class="card-description">
+          Information
+        </p> -->
+        <form action="" method="POST" class="forms-sample">
+          {% csrf_token %}
+          {% load widget_tweaks %}
+          <div class="form-group">
+            <label for="Student_Name">Student_Name</label>
+            {% render_field form.Student_Name placeholder="Student_Name" class+="form-control" value=STUDENT.Student_Name %}
+          </div>
+          <div class="form-group">
+            <label for="Fiscal_Year">Fiscal_Year</label>
+            {% render_field form.Fiscal_Year placeholder="Fiscal_Year" class+="form-control" value=STUDENT.Fiscal_Year %}
+          </div>
+          <div class="form-group">
+            <label for="Research_Centre">Research_Centre</label>
+            {% render_field form.Research_Centre placeholder="Research_Centre" class+="form-control" value=STUDENT.Research_Centre %}
+          </div>
+          <div class="form-group">
+            <label for="International_Student">International_Student</label>
+            {% render_field form.International_Student placeholder="International_Student" class+="form-control" value=STUDENT.International_Student %}
+          </div>
+          <div class="form-group">
+            <label for="Student_Number">Student_Number</label>
+            {% render_field form.Student_Number placeholder="Student_Number" class+="form-control" value=STUDENT.Student_Number %}
+          </div>
+          <div class="form-group">
+            <label for="Program">Program</label>
+            {% render_field form.Program placeholder="Program" class+="form-control" value=STUDENT.Program %}
+          </div>
+          <div class="form-group">
+            <label for="Contract_Hours">Contract_Hours</label>
+            {% render_field form.Contract_Hours placeholder="Contract_Hours" class+="form-control" value=STUDENT.Contract_Hours %}
+          </div>
+          <div class="form-group">
+            <label for="Project_number">Project_number</label>
+            {% render_field form.Project_number placeholder="Project_number" class+="form-control" value=STUDENT.Project_number %}
+          </div>
+
+
+    
+        <button class="btn btn-primary" type="submit">Submit</button>
+       
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
