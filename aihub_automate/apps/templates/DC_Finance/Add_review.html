@@ -3,7 +3,10 @@
 {% block title %} Add Review {% endblock %} 
 
 <!-- Specific CSS Plugins goes HERE  -->
-{% block css_plugins %}{% endblock css_plugins %}
+{% block css_plugins %}
+<link rel="stylesheet" href=
+"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+{% endblock css_plugins %}
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -22,27 +25,27 @@
           {% csrf_token %}
           {% load widget_tweaks %}
           <div class="form-group">
-            <label for="Project_start_date">Project_start_date</label>
+            <label for="Project_start_date">Project start date</label>
             {% render_field form.Project_start_date placeholder="Project_start_date" class+="form-control" value=REVIEW.Project_start_date %}
           </div>
           <div class="form-group">
-            <label for="Project_end_date">Project_end_date</label>
+            <label for="Project_end_date">Project end date</label>
             {% render_field form.Project_end_date placeholder="Project_end_date" class+="form-control" value=REVIEW.Project_end_date %}
           </div>
           <div class="form-group">
-            <label for="Business_solution">Business_solution</label>
+            <label for="Business_solution">Business solution</label>
             {% render_field form.Business_solution placeholder="Business_solution" class+="form-control" value=REVIEW.Business_solution %}
           </div>
           <div class="form-group">
-            <label for="Project_outcome">Project_outcome</label>
+            <label for="Project_outcome">Project outcome</label>
             {% render_field form.Project_outcome placeholder="Project_outcome" class+="form-control" value=REVIEW.Project_outcome %}
           </div>
           <div class="form-group">
-            <label for="Success_Story_Produced">Success_Story_Produced</label>
+            <label for="Success_Story_Produced">Success Story Produced</label>
             {% render_field form.Success_Story_Produced placeholder="Success_Story_Produced" class+="form-control" value=REVIEW.Success_Story_Produced %}
           </div>
           <div class="form-group">
-            <label for="Project_number">Project_number</label>
+            <label for="Project_number">Project number &nbsp;&nbsp;<a class=""  href="/fin/Add_project"><i class="bi-plus-lg"></i></a></label>
             {% render_field form.Project_number placeholder="Project_number" class+="form-control" value=REVIEW.Project_number %}
           </div>
 

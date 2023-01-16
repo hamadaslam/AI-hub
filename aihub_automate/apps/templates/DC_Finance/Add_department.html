@@ -22,8 +22,8 @@
           {% csrf_token %}
           {% load widget_tweaks %}
           <div class="form-group">
-            <label for="DEPARTMENT">DEPARTMENT</label>
-            {% render_field form.DEPARTMENT placeholder="DEPARTMENT" class+="form-control" value=DEPARTMENT.Faculty_Department %}
+            <label for="DEPARTMENT">Department</label>
+            {% render_field form.Faculty_Department placeholder="Department" class+="form-control" value=Department.Faculty_Department %}
           </div>
 
 

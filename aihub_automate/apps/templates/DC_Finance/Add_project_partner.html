@@ -3,7 +3,10 @@
 {% block title %} Add Project Partner {% endblock %} 
 
 <!-- Specific CSS Plugins goes HERE  -->
-{% block css_plugins %}{% endblock css_plugins %}
+{% block css_plugins %}
+<link rel="stylesheet" href=
+"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+{% endblock css_plugins %}
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -26,11 +29,11 @@
             {% render_field form.Project_Partner placeholder="Name" class+="form-control" value=PROJECT_PARTNER.Project_Partner %}
           </div>
           <div class="form-group">
-            <label for="Project_Partner_NAICS_Classification">NAICS Classification</label>
+            <label for="Project_Partner_NAICS_Classification">NAICS Classification &nbsp;&nbsp;<a class=""  href="/fin/Add_naics_classification"><i class="bi-plus-lg"></i></a></label>
             {% render_field form.Project_Partner_NAICS_Classification placeholder="NAICS Classification" class+="form-control" value=PROJECT_PARTNER.Project_Partner_NAICS_Classification %}
           </div>
           <div class="form-group">
-            <label for="Project_Partner_Size">Size</label>
+            <label for="Project_Partner_Size">Size &nbsp;&nbsp;<a class=""  href="/fin/Add_industry_size"><i class="bi-plus-lg"></i></a></label>
             {% render_field form.Project_Partner_Size placeholder="Project Partner Size" class+="form-control" value=PROJECT_PARTNER.Project_Partner_Size %}
           </div>
 

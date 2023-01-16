@@ -110,8 +110,8 @@ def Add_department(request):
     if request.method == "POST":
         form = DEPARTMENT_FORM(request.POST)
         if form.is_valid():
-            DEPARTMENT = form.save(commit=False)
-            DEPARTMENT.save()
+            Department = form.save(commit=False)
+            Department.save()
             return redirect('/fin/department',)
     else:
         form = DEPARTMENT_FORM()

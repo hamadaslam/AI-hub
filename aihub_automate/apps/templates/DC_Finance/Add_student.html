@@ -3,7 +3,10 @@
 {% block title %} Add Student {% endblock %} 
 
 <!-- Specific CSS Plugins goes HERE  -->
-{% block css_plugins %}{% endblock css_plugins %}
+{% block css_plugins %}
+<link rel="stylesheet" href=
+"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+{% endblock css_plugins %}
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -14,7 +17,7 @@
     
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Project Partner</h4>
+        <h4 class="card-title">Add Student</h4>
         <!-- <p class="card-description">
           Information
         </p> -->
@@ -22,35 +25,35 @@
           {% csrf_token %}
           {% load widget_tweaks %}
           <div class="form-group">
-            <label for="Student_Name">Student_Name</label>
+            <label for="Student_Name">Student Name</label>
             {% render_field form.Student_Name placeholder="Student_Name" class+="form-control" value=STUDENT.Student_Name %}
           </div>
           <div class="form-group">
-            <label for="Fiscal_Year">Fiscal_Year</label>
+            <label for="Fiscal_Year">Fiscal Year &nbsp;&nbsp;<a class=""  href="/fin/Add_fiscal_year"><i class="bi-plus-lg"></i></a></label>
             {% render_field form.Fiscal_Year placeholder="Fiscal_Year" class+="form-control" value=STUDENT.Fiscal_Year %}
           </div>
           <div class="form-group">
-            <label for="Research_Centre">Research_Centre</label>
+            <label for="Research_Centre">Research Centre &nbsp;&nbsp;<a class=""  href="/fin/Add_Research_Centre"><i class="bi-plus-lg"></i></a></label>
             {% render_field form.Research_Centre placeholder="Research_Centre" class+="form-control" value=STUDENT.Research_Centre %}
           </div>
           <div class="form-group">
-            <label for="International_Student">International_Student</label>
+            <label for="International_Student">International Student</label>
             {% render_field form.International_Student placeholder="International_Student" class+="form-control" value=STUDENT.International_Student %}
           </div>
           <div class="form-group">
-            <label for="Student_Number">Student_Number</label>
+            <label for="Student_Number">Student Number</label>
             {% render_field form.Student_Number placeholder="Student_Number" class+="form-control" value=STUDENT.Student_Number %}
           </div>
           <div class="form-group">
-            <label for="Program">Program</label>
+            <label for="Program">Program  &nbsp;&nbsp;<a class=""  href="/fin/Add_program"><i class="bi-plus-lg"></i></a></label>
             {% render_field form.Program placeholder="Program" class+="form-control" value=STUDENT.Program %}
           </div>
           <div class="form-group">
-            <label for="Contract_Hours">Contract_Hours</label>
+            <label for="Contract_Hours">Contract Hours</label>
             {% render_field form.Contract_Hours placeholder="Contract_Hours" class+="form-control" value=STUDENT.Contract_Hours %}
           </div>
           <div class="form-group">
-            <label for="Project_number">Project_number</label>
+            <label for="Project_number">Project number  &nbsp;&nbsp;<a class="/fin/Add_project"  href="/fin/Add_project"><i class="bi-plus-lg"></i></a></label>
             {% render_field form.Project_number placeholder="Project_number" class+="form-control" value=STUDENT.Project_number %}
           </div>
 

@@ -22,11 +22,11 @@
           {% csrf_token %}
           {% load widget_tweaks %}
           <div class="form-group">
-            <label for="Name_of_resource">Name_of_resource</label>
+            <label for="Name_of_resource">Name of resource</label>
             {% render_field form.Name_of_resource placeholder="Name_of_resource" class+="form-control" value=RESOURCE.Project_Partner %}
           </div>
           <div class="form-group">
-            <label for="Resource_ID">Resource_ID</label>
+            <label for="Resource_ID">Resource ID</label>
             {% render_field form.Resource_ID placeholder="Resource_ID" class+="form-control" value=RESOURCE.Resource_ID %}
           </div>
           <div class="form-group">

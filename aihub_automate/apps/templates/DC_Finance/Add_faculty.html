@@ -3,9 +3,13 @@
 {% block title %} Add Faculty {% endblock %} 
 
 <!-- Specific CSS Plugins goes HERE  -->
-{% block css_plugins %}{% endblock css_plugins %}
+{% block css_plugins %}
+<link rel="stylesheet" href=
+"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+{% endblock css_plugins %}
 
 <!-- Specific Page CSS goes HERE  -->
+
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %} 
@@ -22,47 +26,47 @@
           {% csrf_token %}
           {% load widget_tweaks %}
           <div class="form-group">
-            <label for="Professor_Name">Professor_Name</label>
+            <label for="Professor_Name">Professor Name</label>
             {% render_field form.Professor_Name placeholder="Name" class+="form-control" value=FACULTY.Professor_Name %}
           </div>
           <div class="form-group">
-            <label for="ID_Number">ID_Number</label>
+            <label for="ID_Number">ID Number</label>
             {% render_field form.ID_Number placeholder="NAICS Classification" class+="form-control" value=FACULTY.ID_Number %}
           </div>
           <div class="form-group">
-            <label for="Faculty_Department">Faculty_Department</label>
+            <label for="Faculty_Department">Faculty Department <a class=""  href="/fin/Add_department/"><i class="bi-plus-lg"></i></a></label>
             {% render_field form.Faculty_Department placeholder="Project Partner Size" class+="form-control" value=FACULTY.Faculty_Department %}
           </div>
           <div class="form-group">
-            <label for="Internship_Supervisor">Internship_Supervisor</label>
+            <label for="Internship_Supervisor">Internship Supervisor </label>
             {% render_field form.Internship_Supervisor placeholder="Name" class+="form-control" value=FACULTY.Internship_Supervisor %}
           </div>
           <div class="form-group">
-            <label for="External_Principal_Investigator">External_Principal_Investigator</label>
+            <label for="External_Principal_Investigator">External Principal Investigator</label>
             {% render_field form.External_Principal_Investigator placeholder="NAICS Classification" class+="form-control" value=FACULTY.External_Principal_Investigator %}
           </div>
           <div class="form-group">
-            <label for="Research_Associate">Research_Associate</label>
+            <label for="Research_Associate">Research Associate </label>
             {% render_field form.Research_Associate placeholder="Project Partner Size" class+="form-control" value=FACULTY.Research_Associate %}
           </div>
           <div class="form-group">
-            <label for="External_Research_Assistant">External_Research_Assistant</label>
+            <label for="External_Research_Assistant">External Research Assistant</label>
             {% render_field form.External_Research_Assistant placeholder="Name" class+="form-control" value=FACULTY.External_Research_Assistant %}
           </div>
           <div class="form-group">
-            <label for="Administration_Support_Staff">Administration_Support_Staff</label>
+            <label for="Administration_Support_Staff">Administration Support Staff</label>
             {% render_field form.Administration_Support_Staff placeholder="NAICS Classification" class+="form-control" value=FACULTY.Administration_Support_Staff %}
           </div>
           <div class="form-group">
-            <label for="Post_Doc">Post_Doc</label>
+            <label for="Post_Doc">Post Doc </label>
             {% render_field form.Post_Doc placeholder="Project Partner Size" class+="form-control" value=FACULTY.Post_Doc %}
           </div>
           <div class="form-group">
-            <label for="Technician_Name">Technician_Name</label>
+            <label for="Technician_Name">Technician Name</label>
             {% render_field form.Technician_Name placeholder="Name" class+="form-control" value=FACULTY.Technician_Name %}
           </div>
           <div class="form-group">
-            <label for="Contract_hours">Contract_hours</label>
+            <label for="Contract_hours">Contract hours </label>
             {% render_field form.Contract_hours placeholder="NAICS Classification" class+="form-control" value=FACULTY.Contract_hours %}
           </div>
 
