@@ -18,6 +18,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+#adding finance team dashboard
+    path('', views.dashboard, name='dashboard'),
+
     path('research_centre/', views.research_center, name='research_center'),
     path('Add_Research_Centre/', views.Add_Research_Centre, name='Add_Research_Centre'),
 
@@ -52,4 +55,5 @@ path('Add_student/', views.Add_student, name='Add_student'),
 path('Add_funding_level/', views.Add_funding_level, name='Add_funding_level'),
 path('Add_industry_size/', views.Add_industry_size, name='Add_industry_size'),
 path('Add_resource/', views.Add_resource, name='Add_resource'),
+path('Resource_dropdown_update/', views.Resource_dropdown_update, name='Resource_dropdown_update'),
 ]

@@ -17,7 +17,7 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Resources</h4>
-            <a class="btn btn-primary"  href="/fin/Add_Resource">&plus; Resource</a>
+            <a class="btn btn-primary"  href="/fin/Add_resource">&plus; Resource</a>
          
         <!-- <p class="card-description">
           Information
@@ -27,13 +27,13 @@
                 <thead>
                     <tr>
                       <th>
-                        Name
+                        Project Number
                       </th>
                       <th>
-                        Resource ID
+                        Resource Position
                       </th>
                       <th>
-                        Position
+                        Resource Selected
                       </th>
                     </tr>
                   </thead>
@@ -47,14 +47,14 @@
                        
                       <td>
                         <!-- <a data-bs-toggle="collapse" href="#projects" aria-expanded="false" aria-controls="ui-basic"> -->
-                        {{x.Name_of_resource}}
+                        {{x.Project_number}}
                         <!-- </a> -->
                       </td>
                       <td>
-                        {{x.Resource_ID}}
+                        {{x.Resource_position}}
                       </td>
                       <td>
-                        {{x.Position}}
+                        {{x.Resource_name}}
                       </td>
                     
                     </tr>

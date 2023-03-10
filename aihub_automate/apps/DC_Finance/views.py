@@ -2,8 +2,17 @@ from django.shortcuts import render, redirect
 from django.utils import timezone
 from .models import *
 from .forms import *
+from django.template.loader import get_template
+from django.http import HttpResponse 
+from django.http import JsonResponse
 
 # Create your views here.
+def dashboard(request):
+    context = {'segment': 'dashboard',}
+
+    html_template = get_template('DC_Finance/index2.html')
+    return HttpResponse(html_template.render(context, request))
+
 
 #view to view research centres in the db
 def research_center(request):
@@ -227,13 +236,22 @@ def Add_industry_size(request):
         form = INDUSTRY_SIZE_FORM()
     return render(request, 'DC_Finance/Add_industry_size.html', {'form': form})
 
+
 def Add_resource(request):
-    if request.method == "POST":
-        form = RESOURCE_FORM(request.POST)
+    faculty = FACULTY.objects.filter()
+    student = STUDENT.objects.filter()
+
+
+    form = RESOURCE_FORM(request.POST)
+    if request.method == 'POST':
         if form.is_valid():
             RESOURCE = form.save(commit=False)
             RESOURCE.save()
             return redirect('/fin/resource',)
     else:
         form = RESOURCE_FORM()
-    return render(request, 'DC_Finance/Add_resource.html', {'form': form})
+    return render(request, 'DC_Finance/Add_resource.html', {'form': form,'faculty':faculty,'student':student})
+
+def Resource_dropdown_update(request):
+    print("Im listning")
+    return

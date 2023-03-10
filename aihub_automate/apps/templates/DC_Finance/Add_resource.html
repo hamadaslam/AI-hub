@@ -18,29 +18,81 @@
         <!-- <p class="card-description">
           Information
         </p> -->
-        <form action="" method="POST" class="forms-sample">
+        <form action="" method="POST" class="forms-sample" id = 'myForm'>
           {% csrf_token %}
           {% load widget_tweaks %}
           <div class="form-group">
-            <label for="Name_of_resource">Name of resource</label>
-            {% render_field form.Name_of_resource placeholder="Name_of_resource" class+="form-control" value=RESOURCE.Project_Partner %}
+            <label for="Name_of_resource">Project number</label>
+            {% render_field form.Project_number placeholder="Project_number" class+="form-control" value=RESOURCE.Project_number %}
           </div>
           <div class="form-group">
-            <label for="Resource_ID">Resource ID</label>
-            {% render_field form.Resource_ID placeholder="Resource_ID" class+="form-control" value=RESOURCE.Resource_ID %}
+            <label for="Resource_ID">Resource position</label>
+            {% render_field form.Resource_position placeholder="Resource_position" class+="form-control" value=RESOURCE.Resource_position %}
           </div>
           <div class="form-group">
-            <label for="Position">Position</label>
-            {% render_field form.Position placeholder="Position" class+="form-control" value=RESOURCE.Position %}
+            <label for="Position" >Resource select</label>
+            {% render_field form.Resource_select placeholder="Resource_select" class+="form-control" value=RESOURCE.Resource_select %}
+          </div>
+          <div class="form-group">
+            <label for="Resource_name">Resource name</label>
+            {% render_field form.Resource_name placeholder="Resource_name" class+="form-control" value=RESOURCE.Resource_name %}
+            
           </div>
 
 
     
         <button class="btn btn-primary" type="submit">Submit</button>
-       
         </form>
       </div>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+  
 
 {% endblock %}
+
+
+
+<!--
+<script>
+  $(document).ready(function() {
+    var specificField = $('#specificField');
+    alert(specificField.val());
+    var nextField = $('#next-field');
+    var csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+    
+    specificField.on('change', function() {
+      $.ajax({
+        url: '/fin/Resource_dropdown_update/',
+        type: 'POST',
+        data: {
+          'specificFieldVal': specificField.val()
+        },headers: {'X-CSRFToken': csrf_token},
+        success: function(response) {
+          console.log('AJAX request sent successfully');
+        },
+        error: function(xhr, status, error) {
+          console.log('Error:', error);
+        }
+      });
+    });
+    
+    nextField.on('focus', function() {
+      // This code runs when the user moves to the next field
+      // Do something here if needed
+    });
+  });
+</script>
+
+
+
+<select name="name" class="form-control" id ="next-field">
+              <option value='-------------'>----------</option>
+              {% for x in faculty %}
+              <option value="{{x}}">{{x}}</option>
+              {% endfor %}
+            </select>
+-->

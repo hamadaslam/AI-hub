@@ -1,0 +1,10 @@
+<form method="post">
+    {% csrf_token %}
+    <label for="parent_model_name">Parent Model Name:</label>
+    <input type="text" id="parent_model_name" name="parent_model_name">
+    <label for="parent_id">Parent ID:</label>
+    <input type="text" id="parent_id" name="parent_id">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+    <button type="submit">Create</button>
+</form>

@@ -1,12 +1,14 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+from django.apps import apps
 # Create your models here.
 
 #creating choice list for dropdown
 CHOICES = (('Yes','Yes'),('No', 'No'),('Nil', 'Nil'))
 POSITION = (('Project Manager','Project Manager'), ('Principal Investigator','Principal Investigator'), ('Project Co-ordinator','Project Co-ordinator'), ('Research Assistant','Research Assistant'), ('Research Associate','Research Associate'))
 Project_outcome_choices = (('Product','Product'),('Process','Process'),('Service','Service'),('Product/Prototype','Product/Prototype'),('Process/Prototype','Process/Prototype'),('Nil','Nil'))
+Selection_resource = (('FACULTY','FACULTY'),('STUDENT','STUDENT'))
 
 #Project partner table when used as foreign key returns project partner name
 class PROJECT_PARTNER(models.Model):
@@ -119,6 +121,9 @@ class STUDENT(models.Model):
     Contract_Hours = models.IntegerField()
     Project_number = models.ForeignKey('Project', on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.Student_Name
+
 
 class FUNDING_LEVEL(models.Model):
     Funding_Level = models.CharField(max_length=50)
@@ -132,18 +137,11 @@ class INDUSTRY_SIZE(models.Model):
     def __str__(self):
         return self.Size
 
+        
 class RESOURCE(models.Model):
-    Name_of_resource = models.CharField(max_length=50)
-    Resource_ID = models.CharField(max_length=20)
-    Position = models.CharField(max_length=30, choices=POSITION, null=True, blank=True)
+    Project_number = models.ForeignKey('Project', on_delete=models.CASCADE)
+    Resource_position = models.CharField(max_length=30, choices=POSITION, null=True, blank=True)
+    Resource_select = models.CharField(max_length=30, choices=Selection_resource, null=True, blank=True)
+    Resource_name = models.CharField(max_length=30)
 
-    def __str__(self):
-        return self.Name_of_resource
-    
-
-
-
-
-
-
-
+    #selective_field = forms.ModelChoiceField(queryset=ModelA.objects.all(), empty_label="(Nothing selected)")    ---->   selective dropdown from same model
