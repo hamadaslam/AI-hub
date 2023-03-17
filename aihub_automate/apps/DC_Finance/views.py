@@ -5,6 +5,9 @@ from .forms import *
 from django.template.loader import get_template
 from django.http import HttpResponse 
 from django.http import JsonResponse
+import json
+from django.core import serializers
+
 
 # Create your views here.
 def dashboard(request):
@@ -244,14 +247,34 @@ def Add_resource(request):
 
     form = RESOURCE_FORM(request.POST)
     if request.method == 'POST':
+        print('add resource 1')
         if form.is_valid():
             RESOURCE = form.save(commit=False)
+            RESOURCE.Resource_name = request.POST.get('Resource_name')
             RESOURCE.save()
             return redirect('/fin/resource',)
     else:
+        print('add resource 2')
         form = RESOURCE_FORM()
     return render(request, 'DC_Finance/Add_resource.html', {'form': form,'faculty':faculty,'student':student})
 
-def Resource_dropdown_update(request):
-    print("Im listning")
-    return
+def Faculty_dropdown_update(request):
+    print('received request!')
+    if request.method == 'GET':
+        data = FACULTY.objects.values_list('Professor_Name', flat=True)
+        data = json.dumps(list(data))
+        print(data)
+        return HttpResponse(data, content_type='application/json')
+    else:
+        print('wrong request to F-dropdown')
+
+def Student_dropdown_update(request):
+    print('received request!')
+    if request.method == 'GET':
+        data = STUDENT.objects.values_list('Student_Name', flat=True)
+        data = json.dumps(list(data))
+        print(data)
+        return HttpResponse(data, content_type='application/json')
+    else:
+        print('wrong request to S-dropdown')
+    
