@@ -24,6 +24,7 @@
           <div class="form-group">
             <label for="Funding_Level">Funding_Level</label>
             {% render_field form.Funding_Level placeholder="Funding_Level" class+="form-control" value=FUNDING_LEVEL.Funding_Level %}
+            <input type="hidden" name="previous_url" value="{{ request.META.HTTP_REFERER }}">
           </div>
 
 

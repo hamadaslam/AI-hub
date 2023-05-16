@@ -24,6 +24,7 @@
           <div class="form-group">
             <label for="FiscalYear">Year</label>
             {% render_field form.Fiscal_Year type="date" placeholder="Year" class+="form-control" value=FISCAL_YEAR.Fiscal_Year %}
+            <input type="hidden" name="previous_url" value="{{ request.META.HTTP_REFERER }}">
           </div>
 
 

@@ -24,6 +24,7 @@
           <div class="form-group">
             <label for="DEPARTMENT">Department</label>
             {% render_field form.Faculty_Department placeholder="Department" class+="form-control" value=Department.Faculty_Department %}
+            <input type="hidden" name="previous_url" value="{{ request.META.HTTP_REFERER }}">
           </div>
 
 

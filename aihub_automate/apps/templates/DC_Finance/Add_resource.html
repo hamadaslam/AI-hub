@@ -40,7 +40,7 @@
            <select name="Resource_name" class="form-control" id ="result" value="{{ RESOURCE.Resource_name }}" placeholder="Resource name">
 
             </select>
-            
+            <input type="hidden" name="previous_url" value="{{ request.META.HTTP_REFERER }}">
           </div>
 
 
@@ -72,7 +72,12 @@ $.ajax({
                 'data[]': selectedValue,
             },
             success: function (data) {
-              const countriesDropDown = document.getElementById("result");
+              dropdown = document.getElementById('result');
+              // Remove all existing options from the dropdown
+              while (dropdown.options.length > 0) {
+              dropdown.remove(0);
+              }
+              //const countriesDropDown = document.getElementById("result");
                 for(let i=0; i<data.length;i++){
                   value = data[i];
                   dropdown = document.getElementById('result');
@@ -89,6 +94,10 @@ else{
                 'data[]': selectedValue,
             },
             success: function (data) {
+              dropdown = document.getElementById('result');
+              while (dropdown.options.length > 0) {
+              dropdown.remove(0);
+              }
               for(let i=0; i<data.length;i++){
                   value = data[i];
                   dropdown = document.getElementById('result');

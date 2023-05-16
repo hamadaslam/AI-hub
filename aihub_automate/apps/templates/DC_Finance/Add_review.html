@@ -47,6 +47,7 @@
           <div class="form-group">
             <label for="Project_number">Project number &nbsp;&nbsp;<a class=""  href="/fin/Add_project"><i class="bi-plus-lg"></i></a></label>
             {% render_field form.Project_number placeholder="Project_number" class+="form-control" value=REVIEW.Project_number %}
+            <input type="hidden" name="previous_url" value="{{ request.META.HTTP_REFERER }}">
           </div>
 
 

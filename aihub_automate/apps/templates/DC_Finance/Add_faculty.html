@@ -68,6 +68,7 @@
           <div class="form-group">
             <label for="Contract_hours">Contract hours </label>
             {% render_field form.Contract_hours placeholder="NAICS Classification" class+="form-control" value=FACULTY.Contract_hours %}
+            <input type="hidden" name="previous_url" value="{{ request.META.HTTP_REFERER }}">
           </div>
 
     

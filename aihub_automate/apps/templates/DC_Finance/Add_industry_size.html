@@ -24,6 +24,7 @@
           <div class="form-group">
             <label for="Size">Size</label>
             {% render_field form.Size placeholder="Size" class+="form-control" value=INDUSTRY_SIZE.Size %}
+            <input type="hidden" name="previous_url" value="{{ request.META.HTTP_REFERER }}">
           </div>
 
 

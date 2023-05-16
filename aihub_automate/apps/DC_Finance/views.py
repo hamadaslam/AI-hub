@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 import json
 from django.core import serializers
+from django.http import HttpResponseRedirect
 
 
 # Create your views here.
@@ -29,7 +30,12 @@ def Add_Research_Centre(request):
         if form.is_valid():
             Research_Centre = form.save(commit=False)
             Research_Centre.save()
-            return redirect('/fin/research_centre',)
+            # Get the previous URL from the form data or use a fallback URL
+            previous_url = request.POST.get('previous_url', '/')
+            
+            # Redirect back to the previous URL
+            return redirect(previous_url)
+            #return redirect('/fin/research_centre',)
     else:
         form = RESEARCH_CENTRE_FORM()
     return render(request, 'DC_Finance/Add_Research_Centre.html', {'form': form})
@@ -102,7 +108,11 @@ def Add_project_partner(request):
         if form.is_valid():
             PROJECT_PARTNER = form.save(commit=False)
             PROJECT_PARTNER.save()
-            return redirect('/fin/project_partner',)
+            # Get the previous URL from the form data or use a fallback URL
+            previous_url = request.POST.get('previous_url', '/')
+            
+            # Redirect back to the previous URL
+            return redirect(previous_url)
     else:
         form = PROJECT_PARTNER_FORM()
     return render(request, 'DC_Finance/Add_project_partner.html', {'form': form})
@@ -113,7 +123,11 @@ def Add_fiscal_year(request):
         if form.is_valid():
             FISCAL_YEAR = form.save(commit=False)
             FISCAL_YEAR.save()
-            return redirect('/fin/fiscal_year',)
+            # Get the previous URL from the form data or use a fallback URL
+            previous_url = request.POST.get('previous_url', '/')
+            
+            # Redirect back to the previous URL
+            return redirect(previous_url)
     else:
         form = FISCAL_YEAR_FORM()
     return render(request, 'DC_Finance/Add_fiscal_year.html', {'form': form})
@@ -124,7 +138,11 @@ def Add_department(request):
         if form.is_valid():
             Department = form.save(commit=False)
             Department.save()
-            return redirect('/fin/department',)
+            # Get the previous URL from the form data or use a fallback URL
+            previous_url = request.POST.get('previous_url', '/')
+            
+            # Redirect back to the previous URL
+            return redirect(previous_url)
     else:
         form = DEPARTMENT_FORM()
     return render(request, 'DC_Finance/Add_department.html', {'form': form})
@@ -135,7 +153,11 @@ def Add_program(request):
         if form.is_valid():
             Program = form.save(commit=False)
             Program.save()
-            return redirect('/fin/program',)
+            # Get the previous URL from the form data or use a fallback URL
+            previous_url = request.POST.get('previous_url', '/')
+            
+            # Redirect back to the previous URL
+            return redirect(previous_url)
     else:
         form = Program_FORM()
     return render(request, 'DC_Finance/Add_program.html', {'form': form})
@@ -146,7 +168,11 @@ def Add_faculty(request):
         if form.is_valid():
             FACULTY = form.save(commit=False)
             FACULTY.save()
-            return redirect('/fin/faculty',)
+            # Get the previous URL from the form data or use a fallback URL
+            previous_url = request.POST.get('previous_url', '/')
+            
+            # Redirect back to the previous URL
+            return redirect(previous_url)
     else:
         form = FACULTY_FORM()
     return render(request, 'DC_Finance/Add_faculty.html', {'form': form})
@@ -157,7 +183,11 @@ def Add_project(request):
         if form.is_valid():
             Project = form.save(commit=False)
             Project.save()
-            return redirect('/fin/project',)
+            # Get the previous URL from the form data or use a fallback URL
+            previous_url = request.POST.get('previous_url', '/')
+            
+            # Redirect back to the previous URL
+            return redirect(previous_url)
     else:
         form = Project_FORM()
     return render(request, 'DC_Finance/Add_project.html', {'form': form})
@@ -168,7 +198,11 @@ def Add_funder(request):
         if form.is_valid():
             FUNDER = form.save(commit=False)
             FUNDER.save()
-            return redirect('/fin/funder',)
+            # Get the previous URL from the form data or use a fallback URL
+            previous_url = request.POST.get('previous_url', '/')
+            
+            # Redirect back to the previous URL
+            return redirect(previous_url)
     else:
         form = FUNDER_FORM()
     return render(request, 'DC_Finance/Add_funder.html', {'form': form})
@@ -179,7 +213,11 @@ def Add_naics_classification(request):
         if form.is_valid():
             NAICS_CLASSIFICATION = form.save(commit=False)
             NAICS_CLASSIFICATION.save()
-            return redirect('/fin/naics_classification',)
+            # Get the previous URL from the form data or use a fallback URL
+            previous_url = request.POST.get('previous_url', '/')
+            
+            # Redirect back to the previous URL
+            return redirect(previous_url)
     else:
         form = NAICS_CLASSIFICATION_FORM()
     return render(request, 'DC_Finance/Add_naics_classification.html', {'form': form})
@@ -190,7 +228,11 @@ def Add_review(request):
         if form.is_valid():
             REVIEW = form.save(commit=False)
             REVIEW.save()
-            return redirect('/fin/review',)
+            # Get the previous URL from the form data or use a fallback URL
+            previous_url = request.POST.get('previous_url', '/')
+            
+            # Redirect back to the previous URL
+            return redirect(previous_url)
     else:
         form = REVIEW_FORM()
     return render(request, 'DC_Finance/Add_review.html', {'form': form})
@@ -201,7 +243,11 @@ def Add_finance(request):
         if form.is_valid():
             FINANCE = form.save(commit=False)
             FINANCE.save()
-            return redirect('/fin/finance',)
+            # Get the previous URL from the form data or use a fallback URL
+            previous_url = request.POST.get('previous_url', '/')
+            
+            # Redirect back to the previous URL
+            return redirect(previous_url)
     else:
         form = FINANCE_FORM()
     return render(request, 'DC_Finance/Add_finance.html', {'form': form})
@@ -212,7 +258,11 @@ def Add_student(request):
         if form.is_valid():
             STUDENT = form.save(commit=False)
             STUDENT.save()
-            return redirect('/fin/student',)
+            # Get the previous URL from the form data or use a fallback URL
+            previous_url = request.POST.get('previous_url', '/')
+            
+            # Redirect back to the previous URL
+            return redirect(previous_url)
     else:
         form = STUDENT_FORM()
     return render(request, 'DC_Finance/Add_student.html', {'form': form})
@@ -223,7 +273,11 @@ def Add_funding_level(request):
         if form.is_valid():
             FUNDING_LEVEL = form.save(commit=False)
             FUNDING_LEVEL.save()
-            return redirect('/fin/funding_level',)
+            # Get the previous URL from the form data or use a fallback URL
+            previous_url = request.POST.get('previous_url', '/')
+            
+            # Redirect back to the previous URL
+            return redirect(previous_url)
     else:
         form = FUNDING_LEVEL_FORM()
     return render(request, 'DC_Finance/Add_funding_level.html', {'form': form})
@@ -234,7 +288,11 @@ def Add_industry_size(request):
         if form.is_valid():
             INDUSTRY_SIZE = form.save(commit=False)
             INDUSTRY_SIZE.save()
-            return redirect('/fin/industry_size',)
+            # Get the previous URL from the form data or use a fallback URL
+            previous_url = request.POST.get('previous_url', '/')
+            
+            # Redirect back to the previous URL
+            return redirect(previous_url)
     else:
         form = INDUSTRY_SIZE_FORM()
     return render(request, 'DC_Finance/Add_industry_size.html', {'form': form})
@@ -252,11 +310,15 @@ def Add_resource(request):
             RESOURCE = form.save(commit=False)
             RESOURCE.Resource_name = request.POST.get('Resource_name')
             RESOURCE.save()
-            return redirect('/fin/resource',)
+            # Get the previous URL from the form data or use a fallback URL
+            previous_url = request.POST.get('previous_url', '/')
+            
+            # Redirect back to the previous URL
+            return redirect(previous_url)
     else:
         print('add resource 2')
         form = RESOURCE_FORM()
-    return render(request, 'DC_Finance/Add_resource.html', {'form': form,'faculty':faculty,'student':student})
+    return render(request, 'DC_Finance/Add_resource.html', {'form': form})
 
 def Faculty_dropdown_update(request):
     print('received request!')

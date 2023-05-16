@@ -24,6 +24,7 @@
           <div class="form-group">
             <label for="NAICS_Classification">NAICS_Classification</label>
             {% render_field form.NAICS_Classification placeholder="NAICS_Classification" class+="form-control" value=NAICS_CLASSIFICATION.NAICS_Classification %}
+            <input type="hidden" name="previous_url" value="{{ request.META.HTTP_REFERER }}">
           </div>
 
 

@@ -35,6 +35,7 @@
           <div class="form-group">
             <label for="Project_Partner_Size">Size &nbsp;&nbsp;<a class=""  href="/fin/Add_industry_size"><i class="bi-plus-lg"></i></a></label>
             {% render_field form.Project_Partner_Size placeholder="Project Partner Size" class+="form-control" value=PROJECT_PARTNER.Project_Partner_Size %}
+            <input type="hidden" name="previous_url" value="{{ request.META.HTTP_REFERER }}">
           </div>
 
 

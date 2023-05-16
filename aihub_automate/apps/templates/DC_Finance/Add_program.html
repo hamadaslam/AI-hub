@@ -24,6 +24,7 @@
           <div class="form-group">
             <label for="Program">Program</label>
             {% render_field form.Program placeholder="Name" class+="form-control" value=Program.Program %}
+            <input type="hidden" name="previous_url" value="{{ request.META.HTTP_REFERER }}">
           </div>
 
 

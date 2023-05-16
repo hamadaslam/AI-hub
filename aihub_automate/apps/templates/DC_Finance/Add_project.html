@@ -67,6 +67,7 @@
           <div class="form-group">
             <label for="Project_NAICS_Classification">Project NAICS Classification &nbsp;&nbsp;<a class=""  href="/fin/Add_naics_classification"><i class="bi-plus-lg"></i></a></label>
             {% render_field form.Project_NAICS_Classification placeholder="Project_NAICS_Classification" class+="form-control" value=Project.Project_NAICS_Classification %}
+            <input type="hidden" name="previous_url" value="{{ request.META.HTTP_REFERER }}">
           </div>
 
 
